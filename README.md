@@ -12,9 +12,6 @@ To create the environment and install packages, run:
 # install uv if you don't have it already
 python -m pip install uv
 
-# initialize project (already done)
-uv init
-
 # sync dependencies and create virtual environment
 uv sync
 ```
@@ -29,5 +26,20 @@ uv sync --locked
 Dependencies include common data science libraries such as `numpy`, `pandas`,
 `scikit-learn`, `matplotlib`, `seaborn`, and development tools like `black`,
 `pytest`, and `flake8`.
+
+## Pre-commit checks
+
+A `pre-commit` hook is configured to run [ruff](https://github.com/charliermarsh/ruff) on
+every commit. The hook is installed automatically when you clone the repository
+and run `uv sync` (or you can install it manually with `pre-commit install`).
+It will block the commit if lint errors are detected, helping keep the code
+clean. To run the checks manually:
+
+```bash
+pre-commit run --all-files
+```
+
+Add or adjust hooks by editing `.pre-commit-config.yaml` and then re-installing
+or running `pre-commit autoupdate` to bump revisions.
 
 
