@@ -30,13 +30,17 @@ Dependencies include common data science libraries such as `numpy`, `pandas`,
 ## Pre-commit checks
 
 A `pre-commit` hook is configured to run [ruff](https://github.com/charliermarsh/ruff) on
-every commit. The hook is installed automatically when you clone the repository
-and run `uv sync` (or you can install it manually with `pre-commit install`).
+every commit. Install the hook once after environment setup:
+
+```bash
+uv run pre-commit install
+```
+
 It will block the commit if lint errors are detected, helping keep the code
 clean. To run the checks manually:
 
 ```bash
-pre-commit run --all-files
+uv run pre-commit run --all-files
 ```
 
 Add or adjust hooks by editing `.pre-commit-config.yaml` and then re-installing
